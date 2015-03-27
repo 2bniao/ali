@@ -15,17 +15,15 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import pachong.dao.PachongDao;
 
 public class DownloadJob {
-	@Autowired
-	private PachongDao pachongDao;
 	
 	public void doJob() {
 		List<String> userList = new ArrayList<String>();
 		userList.add("136384759");  //lijian
 		userList.add("136496469");  //niao
-		userList.add("220314893");
+		userList.add("220314893");  //野猪
+		userList.add("127194220");  //野猪
 		for(String userID:userList){
 			downloadFile("http://dotamax.com/player/detail/"+userID);
 		}
@@ -63,7 +61,7 @@ System.err.println("Method failed: "+ getMethod.getStatusLine());
  byte[] responseBody = getMethod.getResponseBody();//读取为字节数组
 			  //根据网页 url 生成保存时的文件名filePath="D:\\"+getFileNameByUrl(url,
  
-          filePath="D:\\"+getFileNameByUrl(url,
+          filePath="/usr/local/ali/"+getFileNameByUrl(url,
 		   getMethod.getResponseHeader("Content-Type").getValue());
 			saveToLocal(responseBody,filePath);
 		   getMethod.getResponseHeader("Content-Type").getValue();

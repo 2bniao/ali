@@ -8,6 +8,44 @@ public class Dota {
 	private String number;
 	private String level;
 	private String score;
+	private String detail ;//比赛详情链接
+	private String accountName;
+	private String result;
+	private String playDate;
+	
+	
+
+	public String getPlayDate() {
+		return playDate;
+	}
+
+	public void setPlayDate(String playDate) {
+		this.playDate = playDate;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public String getAccountName() {
+		return accountName;
+	}
+
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
 
 	public int getId() {
 		return id;

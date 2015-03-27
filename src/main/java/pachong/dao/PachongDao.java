@@ -8,17 +8,15 @@ import pachong.vo.Dota;
 
 @Repository
 public class PachongDao {
-	@Autowired
-	private JdbcTemplate jdbcPachong;
 	
 	
 	
 	
 	public void save(Dota dota) {
-		String sql = "insert into dota2(userid,pic,hero,number,level,score) values(?,?,?,?,?,?)";
+	/*	String sql = "insert into dota2(userid,pic,hero,number,level,score) values(?,?,?,?,?,?)";
 		Object[] data = new Object[] { dota.getUserid(), dota.getPic(),
 				dota.getHero(), dota.getNumber(), dota.getLevel(),
 				dota.getScore() };
-		jdbcPachong.update(sql, data);
+		jdbcPachong.update(sql, data);*/
 	}
 }
