@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  >
+<meta http-equiv="cache-control" content="cache">
+<title>报名</title>
+<link rel="stylesheet" type="text/css" href="../ali/js/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../ali/js/themes/icon.css">
+<script type="text/javascript" src="../ali/js/jquery.min.js"></script>
+<script type="text/javascript" src="../ali/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="信息" style="width:400px">
+		<div style="padding:10px 60px 20px 60px">
+	    <form id="ff" method="post" action="zhuoqiu/baoming.htm">
+	    	<table cellpadding="5">
+	    		<tr>
+	    			<td>姓名:</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+	    		<tr>
+	    	</table>
+	    </form>
+	    <div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">报名</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+	    </div>
+	    </div>
+	</div>
+	
+	
+	<center><font size="11">已报名选手</font></center>
+	<table id="dg" title="" class="easyui-datagrid"
+  style="width:700px;height:250px" 
+  toolbar="#toolbar" pagination="true" rownumbers="true"
+  fitColumns="true" singleSelect="true" fit="true" border="0"
+  url="zhuoqiu/list.htm" >
+  <thead>
+    <tr>
+      <th field="name" width="50" >选手名</th>
+      <th field=baomingDate width="50">报名日期</th>
+    </tr>
+  </thead>
+</table>
+	
+	
+	
+	
+	<script>
+		function submitForm(){
+			//$('#ff').form('submit');
+			$(ff).form('submit', {
+				url : 'zhuoqiu/baoming.htm',
+				dataType : 'text',
+				success : function(result) {
+					map = $.parseJSON(result);
+					var status= map.status;
+					if (status==0) {
+					alert("报名成功！！！")
+					} else if(status==-1){
+						alert("请勿重复报名！！！")
+					}else if(status==-2){
+						alert("请检查输入的中文名是否正确！！！")
+					}else{
+						alert("系统异常，囧！！！")
+					}
+
+				}
+			});
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+</body>
+</html>

@@ -9,9 +9,9 @@
        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 	<!-- 扫描com.maizuo.service包下所有标注@Service的服务组件 -->
-	<context:component-scan base-package="pachong.controller" />
-	<context:component-scan base-package="pachong.dao" />
-	<context:component-scan base-package="pachong.redis" />
+	<context:component-scan base-package="com.mt.controller" />
+	<context:component-scan base-package="com.mt.dao" />
+	<context:component-scan base-package="com.mt.redis" />
 	
 		    <!-- jedis shard pool配置 -->
     <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool" scope="prototype">
@@ -23,8 +23,8 @@
         </constructor-arg>
     </bean>
         <bean id="jedis.shardInfo" class="redis.clients.jedis.JedisShardInfo">
-        <!-- <constructor-arg index="0" value="59.36.99.125" /> -->
-        <constructor-arg index="0" value="120.25.204.152"/>
+      <!--      <constructor-arg index="0" value="120.25.204.152"/>   -->
+    <constructor-arg index="0" value="192.168.1.204"/>
         <constructor-arg index="1" value="6379"/>
         <property name="password" value="123456"/>
         <!-- <property name="password" value="hyx123!" /> -->
@@ -70,7 +70,7 @@
 	<bean id="pachongDownloadTriggerJob"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject">
-			<bean class="pachong.job.DownloadJob">
+			<bean class="com.mt.job.DownloadJob">
 			</bean>
 		</property>
 		<property name="targetMethod" value="doJob" />
@@ -89,7 +89,7 @@
 	<bean id="pachongReadTriggerJob"
 		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject">
-			<bean class="pachong.job.ReadJob">
+			<bean class="com.mt.job.ReadJob">
 			</bean>
 		</property>
 		<property name="targetMethod" value="doJob" />

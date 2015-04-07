@@ -1,10 +1,11 @@
-package pachong.dao;
+package com.mt.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import pachong.vo.Dota;
+import com.mt.vo.Dota;
+
 
 @Repository
 public class PachongDao {

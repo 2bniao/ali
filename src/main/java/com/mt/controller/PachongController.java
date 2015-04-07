@@ -1,4 +1,4 @@
-package pachong.controller;
+package com.mt.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pachong.redis.PachongRedis;
-import pachong.vo.Dota;
-import pachong.vo.Result;
+import com.mt.redis.PachongRedis;
+import com.mt.vo.Dota;
+
 
 @Controller
 @RequestMapping("/pachong")

@@ -1,4 +1,4 @@
-package pachong.job;
+package com.mt.job;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,8 +12,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import pachong.redis.PachongRedis;
-import pachong.vo.Dota;
+import com.mt.redis.PachongRedis;
+import com.mt.vo.Dota;
+
 
 public class ReadJob {
 
@@ -27,7 +28,9 @@ public class ReadJob {
 		userList.add("220314893");
 		userList.add("127194220");
 		for (String userid : userList) {
-			File file = new File("/usr/local/ali/"+"dotamax.com_player_detail_" + userid+ ".html");
+			  // String path="/usr/local/ali/";
+			 String path="D:/";
+			File file = new File(path+"dotamax.com_player_detail_" + userid+ ".html");
 			Document doc = Jsoup.parse(file, "utf-8", "http://dotamax.com");
 			Element el11 = doc.select("div.flat-grey-box").get(1);
 			Element el2 = el11.select("tbody.table-player-detail").first();

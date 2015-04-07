@@ -1,11 +1,12 @@
-package pachong.controller;
+package com.mt.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 
-import pachong.vo.Result;
+import com.mt.vo.Result;
+
 
 /**
  * Controller的基类

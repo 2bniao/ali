@@ -1,4 +1,4 @@
-package pachong.vo;
+package com.mt.vo;
 
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 

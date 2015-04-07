@@ -1,4 +1,4 @@
-package pachong.test;
+package com.mt.test;
 
 import java.io.File;
 import java.io.IOException;
