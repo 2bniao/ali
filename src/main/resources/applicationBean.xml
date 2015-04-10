@@ -23,10 +23,10 @@
         </constructor-arg>
     </bean>
         <bean id="jedis.shardInfo" class="redis.clients.jedis.JedisShardInfo">
-      <!--      <constructor-arg index="0" value="120.25.204.152"/>   -->
-    <constructor-arg index="0" value="192.168.1.204"/>
-        <constructor-arg index="1" value="6379"/>
-        <property name="password" value="123456"/>
+           <constructor-arg index="0" value="120.25.204.152"/>   
+    <!-- <constructor-arg index="0" value="192.168.1.204"/>-->
+         <constructor-arg index="1" value="22122"/>
+        <!--  <property name="password" value="123456"/>-->
         <!-- <property name="password" value="hyx123!" /> -->
     </bean>
 	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
