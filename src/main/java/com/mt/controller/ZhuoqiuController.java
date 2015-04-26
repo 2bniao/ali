@@ -36,7 +36,8 @@ public class ZhuoqiuController  extends BaseController{
 		int flag = zhuoqiuRedis.existUserinfo(name);
 		if(flag==-1) {
 			return this.result(-1, "", "请勿重复报名"); 
-		}
+		} 
+		
 /*		if(flag==-2) {
 			return this.result(-2, "", "请输入正确的中文名"); 
 		}*/
