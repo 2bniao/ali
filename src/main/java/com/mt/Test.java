@@ -26,24 +26,31 @@ import redis.clients.jedis.JedisShardInfo;
 
 public class Test {
 	public static void main(String[] args) throws IOException {
-	
-	 JedisPoolConfig config = new JedisPoolConfig(); 
-         config.setMaxActive(20); 
-         config.setMaxIdle(5); 
-         config.setMaxWait(1000l); 
-         config.setTestOnBorrow(false); 
-  
-	       JedisPool  jedisPool =   new JedisPool(config, "120.25.204.152", 22122, 10000);
+	String card="12345,6789,";
+	System.out.println(card.substring(0, card.length()-1));
+		
+		
+		
+		
+		JedisPoolConfig config = new JedisPoolConfig();
+		config.setMaxActive(20);
+		config.setMaxIdle(5);
+		config.setMaxWait(1000l);
+		config.setTestOnBorrow(false);
+         
+      
+	       JedisPool  jedisPool =   new JedisPool(config, "120.25.204.152", 22123, 10000);
 	       Jedis jedis =jedisPool.getResource();
-	       //jedis.set("gg12", "g1");
-	    //   System.out.println(jedis.get("bbb12"));
-	// jedis.set("bbb12", "99");
+	       jedis.set("syn", "bbbb");
+	   //   System.out.println( jedis.get("test88"));
+	        // System.out.println(jedis.get("zzz"));
+	//jedis.set("zzz", "99");
 	       // jedis.del("vv9");
-	      for(int i=9900;i<9999;i++){
-	    	  System.out.println(jedis.get("fweewfvv"+i));
-	    	  //    System.out.println(jedis.set("fweewfvv"+i, i+""));
-	    	 //  jedis.del("fweewfvv"+i);
-	       }
+	    /*   for(int i=0;i<1000;i++){
+	    	 //  System.out.println(jedis.get("test"+i));
+	     	 System.out.println(jedis.set("test"+i, i+""));
+	    	 // 	 jedis.del("test"+i);
+	     	  }*/
 	       //System.out.println(jedis.get("ss"));
 	      
 	}
