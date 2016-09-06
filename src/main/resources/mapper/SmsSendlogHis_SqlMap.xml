@@ -18,11 +18,11 @@
 		id, sms_id, source, msg_event_id, priority, mobile, content, send_status, send_time, create_time
 	</sql>
 
-	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="String">
 		select 'false' as QUERYID,
 		<include refid="Base_Column_List" />
 		from sms_sendlog_his
-		where id = #{id,jdbcType=BIGINT}
+		where mobile = #{mobile,jdbcType=INTEGER}
 	</select>
 
 

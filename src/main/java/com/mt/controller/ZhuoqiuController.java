@@ -35,7 +35,7 @@ public class ZhuoqiuController extends BaseController {
     @ResponseBody
     public Result baoming(HttpServletRequest request) {
 
-        SmsSendlogHis sms = smsService.selectByPrimaryKey(1l);
+        SmsSendlogHis sms = smsService.selectByPrimaryKey("13798011111");
         int flag = zhuoqiuRedis.existUserinfo("");
         if (flag == -1) {
             return this.result(-1, "", "请勿重复报名");

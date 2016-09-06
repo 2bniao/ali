@@ -11,14 +11,17 @@
                         http://www.dangdang.com/schema/ddframe/reg/reg.xsd
                         http://www.dangdang.com/schema/ddframe/job
                         http://www.dangdang.com/schema/ddframe/job/job.xsd
+                                  http://www.dangdang.com/schema/ddframe/rdb 
+                        http://www.dangdang.com/schema/ddframe/rdb/rdb.xsd 
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+    <import resource="shardingContext.xml"/>
 	<!-- 扫描com.maizuo.service包下所有标注@Service的服务组件 -->
 	<context:component-scan base-package="com.mt.controller" />
 	<context:component-scan base-package="com.mt.dao" />
 	<context:component-scan base-package="com.mt.redis" />
-		<context:component-scan base-package="com.mt.service" />
+	<context:component-scan base-package="com.mt.service" />
 	
 
 	
@@ -56,16 +59,22 @@
 	</bean>
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+<!-- 		<property name="dataSource" ref="dataSource" /> -->
+<property name="dataSource" ref="shardingDataSource"/>
 		<property name="mapperLocations" value="classpath:mapper/*.xml" />
 	</bean>
 	
 	 <!-- 配置扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描me.gacl.dao这个包以及它的子包下的所有映射接口类 -->
-        <property name="basePackage" value="com.mt.mapper" />
+      <!--   <property name="basePackage" value="com.mt.mapper" /> -->
+        <property name="basePackage" value="com.mt.mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
+    
+
+    
+
     
     
 

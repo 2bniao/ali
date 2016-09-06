@@ -12,7 +12,7 @@ public interface SmsSendlogHisDAO {
 
     int insertSelective(SmsSendlogHis record);
 
-    SmsSendlogHis selectByPrimaryKey(Long id);
+    SmsSendlogHis selectByPrimaryKey(String mobile);
 
     int selectCountTodayByCriteria(String mobile);
 

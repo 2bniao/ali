@@ -14,8 +14,8 @@ public class SmsServiceImpl implements SmsServiceI {
     private SmsSendlogHisDAO smsSendlogHisDAO;
 
     @Override
-    public SmsSendlogHis selectByPrimaryKey(Long id) {
-        return smsSendlogHisDAO.selectByPrimaryKey(id);
+    public SmsSendlogHis selectByPrimaryKey(String mobile) {
+        return smsSendlogHisDAO.selectByPrimaryKey(mobile);
     }
 
 }
