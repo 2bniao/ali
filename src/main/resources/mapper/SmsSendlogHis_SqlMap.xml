@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mt.mapper.SmsSendlogHisDAO">
+	<resultMap id="BaseResultMap" type="com.mt.vo.SmsSendlogHis">
+		<id column="id" property="id" jdbcType="BIGINT" />
+		<result column="sms_id" property="smsId" jdbcType="BIGINT" />
+		<result column="source" property="source" jdbcType="VARCHAR" />
+		<result column="msg_event_id" property="msgEventId" jdbcType="INTEGER" />
+		<result column="priority" property="priority" jdbcType="INTEGER" />
+		<result column="mobile" property="mobile" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="VARCHAR" />
+		<result column="send_status" property="sendStatus" jdbcType="INTEGER" />
+		<result column="send_time" property="sendTime" jdbcType="TIMESTAMP" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		id, sms_id, source, msg_event_id, priority, mobile, content, send_status, send_time, create_time
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+		select 'false' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sms_sendlog_his
+		where id = #{id,jdbcType=BIGINT}
+	</select>
+
+
+	<insert id="insert" parameterType="com.mt.vo.SmsSendlogHis">
+		insert into sms_sendlog_his (id, sms_id, source, msg_event_id,
+		priority, mobile, content,
+		send_status, send_time,
+		create_time)
+		values (#{id,jdbcType=BIGINT}, #{smsId,jdbcType=BIGINT}, #{source,jdbcType=VARCHAR},
+		#{msgEventId,jdbcType=INTEGER},
+		#{priority,jdbcType=INTEGER}, #{mobile,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR},
+		#{sendStatus,jdbcType=INTEGER}, #{sendTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+		<selectKey order="AFTER" keyProperty="id" resultType="long">
+			select LAST_INSERT_ID() as id
+		</selectKey>
+	</insert>
+
+	
+</mapper>

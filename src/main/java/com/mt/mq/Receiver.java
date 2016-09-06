@@ -1,14 +1,13 @@
 package com.mt.mq;
 
-
-
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
+import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
-import org.apache.activemq.ActiveMQConnection;
+
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Receiver {
@@ -23,38 +22,33 @@ public class Receiver {
         Destination destination;
         // 消费者，消息接收者
         MessageConsumer consumer;
-        connectionFactory = new ActiveMQConnectionFactory(
-                "admin",
-                "admin",
-                "tcp://120.25.204.152:61616");
+        connectionFactory = new ActiveMQConnectionFactory("admin", "admin", "tcp://120.25.204.152:61616");
         try {
             // 构造从工厂得到连接对象
             connection = connectionFactory.createConnection();
             // 启动
             connection.start();
             // 获取操作连接
-            session = connection.createSession(Boolean.FALSE,
-                    Session.AUTO_ACKNOWLEDGE);
+            session = connection.createSession(Boolean.FALSE, Session.AUTO_ACKNOWLEDGE);
             // 获取session注意参数值xingbo.xu-queue是一个服务器的queue，须在在ActiveMq的console配置
-            destination = session.createQueue("FirstQueue");
+            destination = session.createTopic("aq7");
             consumer = session.createConsumer(destination);
-            while (true) {
-                //设置接收者接收消息的时间，为了便于测试，这里谁定为100s
-                TextMessage message = (TextMessage) consumer.receive(100000);
+
+            while (true) { // 设置接收者接收消息的时间，为了便于测试，这里谁定为100s TextMessage message = (TextMessage) Message message =
+                Message message = consumer.receive();
                 if (null != message) {
-                    System.out.println("收到消息" + message.getText());
+                    System.out.println("收到消息" + ((TextMessage) message).getText());
                 } else {
                     break;
                 }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                if (null != connection)
-                    connection.close();
-            } catch (Throwable ignore) {
-            }
+            /*
+             * try { if (null != connection) connection.close(); } catch (Throwable ignore) { }
+             */
         }
     }
 }

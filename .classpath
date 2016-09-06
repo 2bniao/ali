@@ -33,5 +33,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/短信、邮件商/263邮箱接口/触发文档和样本/java-sdk/fastjson-1.1.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/短信、邮件商/263邮箱接口/触发文档和样本/java-sdk/greenmail-sdk.0.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/短信、邮件商/普林短信通道/api/http.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/接口客户接入指引/接口客户接入指引/JAVA接口开发包/java/lib/postmsg-ump-2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
